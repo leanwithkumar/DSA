@@ -1,0 +1,20 @@
+// Finding the missing Numbers by taking the sum
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int sum =0;
+
+        for(int i=1; i<=n;i++){
+            sum+=i;
+        }
+        int newsum = 0;
+        for(int i=0; i<n; i++){
+            newsum+=nums[i];
+        } 
+        int diff = sum-newsum;
+        return diff;
+        
+    }
+};
