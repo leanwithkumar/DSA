@@ -1,0 +1,19 @@
+class Solution {
+ public:
+  bool isIsomorphic(string s, string t) {
+    unordered_map<char, int> indexS;
+    unordered_map<char, int> indexT;
+    for (int i = 0; i < s.length(); i++) {
+      if (indexS.find(s[i]) == indexS.end()) {
+        indexS[s[i]] = i;
+      }
+      if (indexT.find(t[i]) == indexT.end()) {
+        indexT[t[i]] = i;
+      }
+      if (indexS[s[i]] != indexT[t[i]]) {
+        return false;
+      }
+    }
+    return true;
+  }
+};
