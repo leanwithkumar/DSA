@@ -1,0 +1,28 @@
+class Solution {
+ public:
+  void merge(vector<int>& arr, int start, int mid, int end) {
+    vector<int> temp;
+    int left = start;
+    int right = mid + 1;
+
+    while (left <= mid && right <= end) {
+      if (arr[left] < arr[right]) {
+        temp.push_back(arr[left]);
+        left++;
+      } else {
+        temp.push_back(arr[right]);
+        right++;
+      }
+    }
+    while (left <= mid) {
+      temp.push_back(arr[left]);
+      left++;
+    }
+    while (right <= end) {
+      temp.push_back(arr[right]);
+      right++;
+    }
+    for (int ind = start; ind <= end; ind++) {
+      arr[ind] = temp[ind - start];
+    }
+  }
